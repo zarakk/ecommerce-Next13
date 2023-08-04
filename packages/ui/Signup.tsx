@@ -1,4 +1,4 @@
-// Signup.tsx
+"use client";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 

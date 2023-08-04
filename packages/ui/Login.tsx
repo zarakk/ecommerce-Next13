@@ -1,4 +1,5 @@
-// Login.tsx
+"use client";
+
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 
@@ -48,9 +49,9 @@ function Login() {
       </form>
       <p className="mt-4 text-center">
         Don't have an account?{" "}
-        <Link href="/signup">
-          <a className="text-blue-600 hover:underline">Signup</a>
-        </Link>
+        <a href="/signup" className="text-blue-600 hover:underline">
+          Signup
+        </a>
       </p>
     </div>
   );
