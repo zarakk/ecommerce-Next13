@@ -1,11 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    if (window.location.pathname.includes("admin")) {
+      setRole("admin");
+    }
+    if (!window.location.pathname.includes("admin")) {
+      setRole("user");
+    }
+  }, []);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -14,7 +23,9 @@ function Login() {
 
   return (
     <div className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        {role !== "" && role === "admin" ? "Admin Login" : "User Login"}
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block font-medium mb-1">

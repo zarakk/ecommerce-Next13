@@ -13,13 +13,10 @@
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "name": "ecommerce-nextjs",
-  "packageManager": "npm@9.2.0",
+  "name": "ecommerce-application",
+  "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "tailwind": "^4.0.0"
-  }
+  ]
 }
