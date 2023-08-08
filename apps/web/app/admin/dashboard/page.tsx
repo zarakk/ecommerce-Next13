@@ -5,9 +5,9 @@ import Navbar from "../components/Navbar";
 
 export default function AdminDashboard() {
   return (
-    <>
+    <div className="flex">
       <Navbar />
       <MainDashboard />
-    </>
+    </div>
   );
 }
