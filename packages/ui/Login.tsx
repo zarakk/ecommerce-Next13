@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, FormEvent, useEffect } from "react";
 
 function Login() {
@@ -28,7 +30,7 @@ function Login() {
       }
       // Handle successful login here
     } catch (error: any) {
-      setError(error.message);
+      console.log(error);
     }
   }
 
@@ -37,7 +39,6 @@ function Login() {
       <h2 className="text-2xl font-bold mb-4">
         {role !== "" && role === "admin" ? "Admin Login" : "User Login"}
       </h2>
-      {error && <p className="text-red-600">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block font-medium mb-1">

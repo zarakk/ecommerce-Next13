@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 
-const users = [];
+const users = [{ email: "zarak@gmail.com", password: "zarak" }];
 
 const secret = "SECRET_KEY";
 
 export default function handler(req, res) {
   const { url, method } = req;
-
+  console.log("next13");
   if (url === "/api/auth/signup" && method === "POST") {
     const { email, password } = req.body;
     const user = { id: users.length + 1, email, password };
