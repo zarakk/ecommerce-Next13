@@ -5,3 +5,5 @@ export * from "./Button";
 export * from "./Header";
 export * from "./Login";
 export * from "./Signup";
+export * from "./LandingPage";
+export * from "./MainProduct";

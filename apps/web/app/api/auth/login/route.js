@@ -6,7 +6,7 @@ const users = [{ email: "zarak@gmail.com", password: "zarak" }];
 
 const secret = "SECRET_KEY";
 
-// app/auth/login/route.js
+// api/auth/login/route.js
 export async function POST(request) {
   const { email, password } = await request.json();
   const user = users.find((u) => u.email === email && u.password === password);

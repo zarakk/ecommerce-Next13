@@ -1,11 +1,11 @@
 "use client";
-
 import { useState, FormEvent, useEffect } from "react";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -28,14 +28,33 @@ function Login() {
       if (!res.ok) {
         throw new Error(await res.text());
       }
-      // Handle successful login here
+      const data = await res.json();
+      sessionStorage.setItem("token", data.token);
+      setSuccess("Login successful!");
     } catch (error: any) {
-      console.log(error);
+      setError("Login Error");
     }
   }
 
   return (
     <div className="max-w-md mx-auto p-4">
+      {success && (
+        <div
+          className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4"
+          role="alert"
+        >
+          <span className="block sm:inline">{success}</span>
+        </div>
+      )}
+      {error && (
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+          role="alert"
+        >
+          <span className="block sm:inline">{error}</span>
+        </div>
+      )}
+
       <h2 className="text-2xl font-bold mb-4">
         {role !== "" && role === "admin" ? "Admin Login" : "User Login"}
       </h2>
