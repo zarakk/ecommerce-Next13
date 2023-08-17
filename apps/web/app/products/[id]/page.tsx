@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "ui/Footer";
 import Reviews from "ui/Reviews";
+import ActionButtons from "ui/ActionButtons";
 
 type Product = {
   id: string;
@@ -40,20 +41,7 @@ async function ProductDetailPage({ params: { id } }: any) {
           <h2 className="text-3xl font-bold">{product.title}</h2>
           <p className="text-gray-600 text-lg">${product.price}</p>
           <p className="mt-4">{product.description}</p>
-          <div className="mt-6">
-            <button
-              // onClick={() => {}}
-              className="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 mr-4"
-            >
-              Add to Cart
-            </button>
-            <button
-              // onClick={() => {}}
-              className="bg-yellow-400 text-white rounded-md px-4 py-2 hover:bg-yellow-500"
-            >
-              Buy Now
-            </button>
-          </div>
+          <ActionButtons product={product} />
         </div>
       </div>
       <div className="mt-12">

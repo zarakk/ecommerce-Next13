@@ -10,3 +10,4 @@ export * from "./MainProduct";
 export * from "./Reviews";
 export * from "./Footer";
 export * from "./ProductDetail";
+export * from "./ActionButtons";

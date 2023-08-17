@@ -1,4 +1,5 @@
 // Checkout.tsx
+"use client";
 import { useState } from "react";
 
 type Product = {
@@ -12,9 +13,28 @@ function Checkout() {
   const [shippingAddress, setShippingAddress] = useState("");
   const [billingAddress, setBillingAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [isBillingSameAsShipping, setIsBillingSameAsShipping] = useState(false);
+  const [bankAccountNumber, setBankAccountNumber] = useState("");
 
   function handleCheckout() {
     // Handle checkout process here
+    const orderDetails = {
+      cart,
+      shippingAddress,
+      billingAddress: isBillingSameAsShipping
+        ? shippingAddress
+        : billingAddress,
+      paymentMethod,
+      bankAccountNumber,
+    };
+
+    fetch("/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderDetails),
+    });
   }
 
   return (
@@ -26,12 +46,25 @@ function Checkout() {
         onChange={(event) => setShippingAddress(event.target.value)}
         className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4"
       />
-      <h3 className="text-lg font-medium mb-2">Billing Address</h3>
-      <textarea
-        value={billingAddress}
-        onChange={(event) => setBillingAddress(event.target.value)}
-        className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4"
-      />
+      <div className="flex items-center mb-4">
+        <input
+          type="checkbox"
+          checked={isBillingSameAsShipping}
+          onChange={(event) => setIsBillingSameAsShipping(event.target.checked)}
+          className="mr-2"
+        />
+        <label>Billing address same as shipping address</label>
+      </div>
+      {!isBillingSameAsShipping && (
+        <>
+          <h3 className="text-lg font-medium mb-2">Billing Address</h3>
+          <textarea
+            value={billingAddress}
+            onChange={(event) => setBillingAddress(event.target.value)}
+            className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4"
+          />
+        </>
+      )}
       <h3 className="text-lg font-medium mb-2">Payment Method</h3>
       <select
         value={paymentMethod}
@@ -41,7 +74,20 @@ function Checkout() {
         <option value="">Select a payment method</option>
         <option value="credit-card">Credit Card</option>
         <option value="paypal">PayPal</option>
+        <option value="cash-on-delivery">Cash on Delivery</option>
+        <option value="bank">Bank</option>
       </select>
+      {paymentMethod === "bank" && (
+        <>
+          <h3 className="text-lg font-medium mb-2">Bank Account Number</h3>
+          <input
+            type="text"
+            value={bankAccountNumber}
+            onChange={(event) => setBankAccountNumber(event.target.value)}
+            className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4"
+          />
+        </>
+      )}
       <h3 className="text-lg font-medium mb-2">Order Summary</h3>
       <ul className="border border-gray-300 rounded-md divide-y divide-gray-300 mb-4">
         {cart.map((product) => (

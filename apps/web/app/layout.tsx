@@ -1,5 +1,6 @@
 import Navbar from "ui/Navbar";
 import "ui/styles.css";
+import StoreContextProvider from "./context";
 
 export default function RootLayout({
   children,
@@ -9,9 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-
-        {children}
+        <StoreContextProvider>
+          <Navbar />
+          {children}
+        </StoreContextProvider>
       </body>
     </html>
   );
