@@ -1,13 +1,13 @@
 "use client";
 import { useState, FormEvent, useEffect } from "react";
-
+import { useRouter } from "next/navigation";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-
+  const router = useRouter();
   useEffect(() => {
     if (window.location.pathname.includes("admin")) {
       setRole("admin");
@@ -29,8 +29,9 @@ function Login() {
         throw new Error(await res.text());
       }
       const data = await res.json();
-      sessionStorage.setItem("token", data.token);
+
       setSuccess("Login successful!");
+      // router.push("/admin/dashboard");
     } catch (error: any) {
       setError("Login Error");
     }

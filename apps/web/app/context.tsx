@@ -2,13 +2,12 @@
 
 import { createContext, useState } from "react";
 
-type Product = {
+interface Product {
   id: string;
   title: string;
-  price: number;
-  image: string;
   description: string;
-};
+  price: number;
+}
 
 interface CartItem {
   product: Product;
@@ -22,7 +21,9 @@ interface StoreContextValue {
   setCart: React.Dispatch<React.SetStateAction<Cart>>;
 }
 
-export const StoreContext = createContext({});
+export const StoreContext = createContext<StoreContextValue | undefined>(
+  undefined
+);
 
 export default function StoreContextProvider({ children }) {
   const [cart, setCart] = useState<Cart>([]);

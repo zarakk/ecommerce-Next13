@@ -7,6 +7,7 @@ export default function Navbar() {
   const [storeName, setStoreName] = useState("EccomApp");
   const handleLogout = () => {
     //handle logout
+    fetch("/auth/logout", { method: "POST" });
   };
 
   return (

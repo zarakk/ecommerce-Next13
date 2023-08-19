@@ -25,19 +25,19 @@ const ProductButtons = ({ product }: Props) => {
   const router = useRouter();
 
   // const [cart, setCart] = useState<Cart>([]);
-  const { cart, setCart } = useContext(StoreContext);
+  const { cart, setCart } = useContext<any>(StoreContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const addToCart = (product: Product) => {
     // Check if the product is already in the cart
     const existingCartItem = cart.find(
-      (item: Product) => item.product.id === product.id
+      (item: any) => item.product.id === product.id
     );
 
     if (existingCartItem) {
       // If the product is already in the cart, increase the quantity
       setCart(
-        cart.map((item) =>
+        cart.map((item: any) =>
           item.product.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item

@@ -1,6 +1,5 @@
 import MainProduct from "./MainProduct";
 import Link from "next/link";
-import Navbar from "./Navbar";
 interface Product {
   title: string;
   description: string;
@@ -16,7 +15,6 @@ interface Props {
 export default function LandingPage({ products }: Props) {
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Navbar />
       <div
         className="relative bg-center bg-contain  h-96"
         style={{ backgroundImage: "url('/banner.jpg')" }}

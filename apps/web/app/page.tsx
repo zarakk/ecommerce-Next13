@@ -2,20 +2,7 @@ import LandingPage from "ui/LandingPage";
 
 export default async function Page() {
   const products = await getProducts();
-  // const fetchprod = async () => {
-  //   const res = await fetch("/api/products", {
-  //     method: "GET",
-  //     headers: { "Content-Type": "application/json" },
-  //   });
-  //   const products = await res.json();
 
-  //   console.log("res", products);
-  // };
-
-  // useEffect(() => {
-  //   fetchprod();
-  // });
-  // console.log(products[0]);
   return <LandingPage products={products} />;
 }
 

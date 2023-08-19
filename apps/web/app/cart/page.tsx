@@ -1,5 +1,8 @@
 // Cart.tsx
-import { useState } from "react";
+"use client";
+import { useState, useContext } from "react";
+import { StoreContext } from "../context";
+import { useRouter } from "next/navigation";
 
 type Product = {
   id: string;
@@ -8,21 +11,23 @@ type Product = {
 };
 
 function Cart() {
-  const [cart, setCart] = useState<Product[]>([]);
-
+  // const [cart, setCart] = useState<Product[]>([]);
+  const { cart, setCart } = useContext(StoreContext);
+  const router = useRouter();
   function removeFromCart(product: Product) {
-    setCart(cart.filter((item) => item.id !== product.id));
+    setCart(cart.filter((item: any) => item.id !== product.id));
   }
 
   function checkout() {
     // Handle checkout process here
+    router.push("/checkout");
   }
 
   return (
     <div className="max-w-md mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Cart</h2>
       <ul className="space-y-4">
-        {cart.map((product) => (
+        {cart.map((product: any) => (
           <li
             key={product.id}
             className="border border-gray-300 rounded-md p-4"
