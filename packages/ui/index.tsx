@@ -11,3 +11,6 @@ export * from "./Reviews";
 export * from "./Footer";
 export * from "./ProductDetail";
 export * from "./ActionButtons";
+export * from "./MainNavbar";
+export * from "./UserNavbar";
+export * from "./AdminNavbar";

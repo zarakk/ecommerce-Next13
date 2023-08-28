@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../(components)/Navbar";
+import Navbar from "ui/AdminNavbar";
 
 export default function SettingsPage() {
   const [taxRate, setTaxRate] = useState(0.1);
@@ -13,8 +13,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <Navbar />
-      <div className="p-4 ml-56">
+      <div className="container ml-auto pt-2 pl-4 bg-white h-screen">
         <h1 className="text-2xl font-bold mb-4">Admin Settings</h1>
         <div className="mb-4">
           <label

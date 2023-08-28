@@ -1,6 +1,6 @@
 export default function MainDashboard() {
   return (
-    <div className="max-w-7xl ml-48 p-4">
+    <div className="container ml-auto pt-2 pl-4 bg-white h-screen">
       <h1 className="text-3xl font-bold mb-4">Admin Dashboard</h1>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
         <a href="/admin/products">

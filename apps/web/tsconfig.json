@@ -8,7 +8,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/products/[productsid]"
+    "app/products/[productsid]",
+    "../../packages/ui/AdminNavbar.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
-import { getProducts } from "../page";
 import MainProduct from "ui/MainProduct";
+import { getProducts } from "../page";
 
 type Product = {
   id: number;
@@ -11,7 +11,6 @@ type Product = {
 
 async function Products() {
   const products = await getProducts();
-  console.log(products);
   // const [products, setProducts] = useState<Product[]>([]);
 
   return (

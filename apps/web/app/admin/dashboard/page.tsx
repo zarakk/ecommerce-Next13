@@ -1,13 +1,17 @@
-"use client";
+// "use client";
 
 import MainDashboard from "../(components)/MainDashBoard";
-import Navbar from "../(components)/Navbar";
 
-export default function AdminDashboard() {
-  return (
-    <div className="flex">
-      <Navbar />
-      <MainDashboard />
-    </div>
-  );
+// import MainDashboard from "../(components)/MainDashBoard";
+// import Navbar from "ui/AdminNavbar";
+
+// export default function AdminDashboard() {
+//   return (
+//     <div className="bg-black">
+//       <MainDashboard />
+//     </div>
+//   );
+// }
+export default function Page() {
+  return <MainDashboard />;
 }

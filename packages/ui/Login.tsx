@@ -1,12 +1,16 @@
 "use client";
 import { useState, FormEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [isDisplayMessage, setIsDisplayMessage] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
   const router = useRouter();
   useEffect(() => {
     if (window.location.pathname.includes("admin")) {
@@ -19,27 +23,33 @@ function Login() {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    setIsLogin(true);
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      if (!res.ok) {
-        throw new Error(await res.text());
-      }
+      // if (!res.ok) {
+      //   throw new Error(await res.text());
+      // }
       const data = await res.json();
-
+      console.log(res);
+      setIsLogin(false);
       setSuccess("Login successful!");
+      setTimeout(() => setIsDisplayMessage(false), 3000);
+
       // router.push("/admin/dashboard");
     } catch (error: any) {
+      setIsLogin(false);
       setError("Login Error");
+      setTimeout(() => setIsDisplayMessage(false), 3000);
     }
   }
 
   return (
     <div className="max-w-md mx-auto p-4">
-      {success && (
+      {success && isDisplayMessage && (
         <div
           className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4"
           role="alert"
@@ -47,7 +57,7 @@ function Login() {
           <span className="block sm:inline">{success}</span>
         </div>
       )}
-      {error && (
+      {error && isDisplayMessage && (
         <div
           className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
           role="alert"
@@ -88,7 +98,7 @@ function Login() {
           type="submit"
           className="w-full bg-blue-600 text-white rounded-md px-3 py-2 hover:bg-blue-700"
         >
-          Login
+          {isLogin ? "Logging in" : "Login"}
         </button>
       </form>
       <p className="mt-4 text-center">

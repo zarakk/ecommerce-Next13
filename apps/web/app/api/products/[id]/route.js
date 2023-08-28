@@ -1,4 +1,4 @@
-let products = [
+export const products = [
   {
     id: 1,
     title: "White hat with logo",
@@ -21,10 +21,8 @@ let products = [
     image: "/img-3.jpg",
   },
 ];
+
 export async function GET(request, context) {
-  // Get the id from the request URL
-  // const url = new URL(request.url);
-  // const ids = url.searchParams.get("id");
   const { id } = context.params;
   // Find the product with the specified id
   const product = products.find((product) => product.id === parseInt(id));
@@ -38,6 +36,29 @@ export async function GET(request, context) {
     });
   } else {
     return new Response(JSON.stringify(product), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
+
+export async function DELETE(request, context) {
+  const { id } = context.params;
+  // Find the index of the product with the specified id
+  const index = products.findIndex((product) => product.id === parseInt(id));
+
+  // Check if a product was found
+  if (index === -1) {
+    // Return an error response
+    return new Response(JSON.stringify({ error: "Product not found" }), {
+      status: 404,
+      headers: { "Content-Type": "application/json" },
+    });
+  } else {
+    // Remove the product from the array
+    products.splice(index, 1);
+
+    // Return a success response
+    return new Response(JSON.stringify({ message: "Product deleted" }), {
       headers: { "Content-Type": "application/json" },
     });
   }

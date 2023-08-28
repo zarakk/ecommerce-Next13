@@ -1,6 +1,8 @@
 // Checkout.tsx
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { StoreContext } from "../context";
+import { useRouter } from "next/navigation";
 
 type Product = {
   id: string;
@@ -9,15 +11,20 @@ type Product = {
 };
 
 function Checkout() {
-  const [cart, setCart] = useState<Product[]>([]);
+  const { cart, setCart } = useContext(StoreContext);
   const [shippingAddress, setShippingAddress] = useState("");
   const [billingAddress, setBillingAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [isBillingSameAsShipping, setIsBillingSameAsShipping] = useState(false);
   const [bankAccountNumber, setBankAccountNumber] = useState("");
-
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.product.price * item.quantity,
+    0
+  );
+  const router = useRouter();
   function handleCheckout() {
     // Handle checkout process here
+
     const orderDetails = {
       cart,
       shippingAddress,
@@ -26,6 +33,7 @@ function Checkout() {
         : billingAddress,
       paymentMethod,
       bankAccountNumber,
+      totalPrice,
     };
 
     fetch("/api/order", {
@@ -35,6 +43,9 @@ function Checkout() {
       },
       body: JSON.stringify(orderDetails),
     });
+    setTimeout(() => {
+      router.push("/checkout/checkout-success");
+    }, 1000);
   }
 
   return (
@@ -77,9 +88,9 @@ function Checkout() {
         <option value="cash-on-delivery">Cash on Delivery</option>
         <option value="bank">Bank</option>
       </select>
-      {paymentMethod === "bank" && (
+      {paymentMethod && (
         <>
-          <h3 className="text-lg font-medium mb-2">Bank Account Number</h3>
+          <h3 className="text-lg font-medium mb-2">Account Number</h3>
           <input
             type="text"
             value={bankAccountNumber}
@@ -90,10 +101,13 @@ function Checkout() {
       )}
       <h3 className="text-lg font-medium mb-2">Order Summary</h3>
       <ul className="border border-gray-300 rounded-md divide-y divide-gray-300 mb-4">
-        {cart.map((product) => (
-          <li key={product.id} className="p-4">
-            <h4 className="text-base font-medium">{product.name}</h4>
-            <p className="text-gray-600">${product.price}</p>
+        {cart.map((item: any) => (
+          <li key={item.product.id} className="p-4">
+            <h4 className="text-base font-medium">{item.product.title}</h4>
+            <p className="text-gray-600">${item.product.price}</p>
+            <h3 className="text-lg font-medium p-2">
+              Total price: ${totalPrice.toFixed(2)}
+            </h3>
           </li>
         ))}
       </ul>
