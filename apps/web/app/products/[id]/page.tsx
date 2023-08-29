@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "ui/Footer";
 import Reviews from "ui/Reviews";
-import ActionButtons from "ui/ActionButtons";
+import ProductButtons from "ui/ProductButtons";
 import UserNavbar from "ui/UserNavbar";
 
 type Product = {
@@ -44,7 +44,7 @@ async function ProductDetailPage({ params: { id } }: any) {
             <h2 className="text-3xl font-bold">{product.title}</h2>
             <p className="text-gray-600 text-lg">${product.price}</p>
             <p className="mt-4">{product.description}</p>
-            <ActionButtons product={product} />
+            <ProductButtons product={product} />
           </div>
         </div>
         <div className="mt-12">

@@ -1,15 +1,16 @@
 "use client";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import Navbar from "ui/AdminNavbar";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import Modal from "ui/Modal";
+import EditProductPage from "ui/EditProductPage";
+import NewProductPage from "ui/NewProductPage";
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState<any>([]);
+  const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
 
-  const router: any = useRouter();
   useEffect(() => {
     // Fetch products from API and update state
     fetch("/api/products")
@@ -20,6 +21,7 @@ const ProductsPage = () => {
   const handleEdit = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
+    setModalType("edit");
   };
 
   const handleDelete = (id) => {
@@ -42,14 +44,21 @@ const ProductsPage = () => {
 
   return (
     <>
-      <div className="container ml-auto pt-2 pl-4 bg-white">
+      <div
+        className={`container ml-auto pt-2 pl-4 bg-white ${
+          isModalOpen ? "blur" : ""
+        }`}
+      >
         <h1 className="text-3xl font-bold mb-4">Products</h1>
-        <Link
-          href="/admin/products/new"
+        <button
+          onClick={() => {
+            setIsModalOpen(true);
+            setModalType("new");
+          }}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           New Product
-        </Link>
+        </button>
         <ul className="mt-4">
           {products.map((product) => (
             <li key={product.id} className="border p-4 my-2">
@@ -73,6 +82,26 @@ const ProductsPage = () => {
           ))}
         </ul>
       </div>
+      {isModalOpen && modalType === "new" && (
+        <Modal closeModal={() => setIsModalOpen(false)}>
+          <NewProductPage
+            products={products}
+            setProducts={setProducts}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        </Modal>
+      )}
+      {isModalOpen && modalType === "edit" && (
+        <Modal closeModal={() => setIsModalOpen(false)}>
+          <EditProductPage
+            product={selectedProduct}
+            setIsModalOpen={setIsModalOpen}
+            setProducts={setProducts}
+            products={products}
+          />
+        </Modal>
+      )}
     </>
   );
 };

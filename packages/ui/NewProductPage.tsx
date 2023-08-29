@@ -3,15 +3,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "ui/AdminNavbar";
 
-const NewProductPage = () => {
+const NewProductPage = ({ setProducts, products, setIsModalOpen }: any) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     setIsLoading(true);
     // event.preventDefault();
     // Create a FormData object
@@ -30,14 +29,18 @@ const NewProductPage = () => {
       body: formData,
     });
     // Redirect to products page
+    setProducts([
+      ...products,
+      { id: products.length + 1, title, description, price, image },
+    ]);
     // router.push("/admin/products");
+    setIsModalOpen(true);
     setIsLoading(false);
   };
-
+  console.log(products);
   return (
     <>
-      <Navbar />
-      <div className="container ml-auto">
+      <div className="container ml-auto pt-2 pl-4 bg-white ">
         <h1 className="text-3xl font-bold mb-4">New Product</h1>
         <div>
           <div className="mb-4">

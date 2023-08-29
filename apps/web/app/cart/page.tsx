@@ -15,10 +15,13 @@ function Cart() {
   // const [cart, setCart] = useState<Product[]>([]);
   const { cart, setCart } = useContext(StoreContext);
   const router = useRouter();
-  function removeFromCart(product: Product) {
-    setCart(cart.filter((item: any) => item.id !== product.id));
+  function removeFromCart(item: any) {
+    setCart(
+      cart.filter((cartItem: any) => cartItem.product.id !== item.product.id)
+    );
   }
 
+  console.log(cart);
   function checkout() {
     // Handle checkout process here
     router.push("/checkout");

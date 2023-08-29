@@ -1,20 +1,22 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-interface Product {
+import ProductButtons from "./ProductButtons";
+interface ProductType {
   title: string;
   price: number;
   image: string;
   id: number;
+  description: string;
 }
 interface Props {
-  product: Product;
+  product: ProductType;
 }
 
 export default function MainProduct({ product }: Props) {
-  const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<ProductType[]>([]);
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: ProductType) => {
     setCart((prevCart) => [...prevCart, product]);
   };
 
@@ -32,12 +34,7 @@ export default function MainProduct({ product }: Props) {
         <p className="mt-1 text-lg text-gray-600">{product.price}</p>
       </Link>
 
-      <button
-        onClick={() => handleAddToCart(product)}
-        className="mt-4 w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        Add to Cart
-      </button>
+      <ProductButtons product={product} />
     </div>
   );
 }
