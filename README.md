@@ -1,81 +1,27 @@
-# Turborepo starter
+# NextJS Ecommerce Application
 
-This is an official starter Turborepo.
+This is a full stack ecommerce application built with NextJS 13, the latest version of the React framework. It allows users to browse, add, and purchase products from a responsive landing page. It also has an admin side where admins can manage products and orders.
 
-## Using this example
 
-Run the following command:
 
-```sh
-npx create-turbo@latest
-```
+## User Demo
 
-## What's inside?
+https://github.com/zarakk/ecommerce-application/assets/52151884/8930bcbe-b404-4350-a5af-f8304323fa80
 
-This Turborepo includes the following packages/apps:
+## Admin Demo
 
-### Apps and Packages
+https://github.com/zarakk/ecommerce-application/assets/52151884/de8e89d5-976c-43e9-a15d-bef347579831
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+## Features
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- **Front end**: The front end is built with NextJS 13, which supports features such as image optimization, middleware, and server-side rendering. The styling is done with Tailwind CSS, a utility-first framework that enables fast and responsive design.
+- **Back end**: The back end is also built with NextJS 13, using its API routes feature to create serverless functions that handle requests from the front end. The data is stored in MongoDB, a popular and scalable NoSQL database.
+- **Ecommerce functionality**: The application supports the following ecommerce features:
+  - **Product listing**: Users can view and search products on the landing page, which displays product images, titles, prices, and ratings.
+  - **Product details**: Users can click on a product to see more details, such as descriptions, reviews, and related products.
+  - **Shopping cart**: Users can add products to their shopping cart, which shows the total price and quantity of the items. Users can also update or remove items from their cart.
+  - **Checkout**: Users can proceed to the checkout page, where they can enter their shipping and payment information. The application uses Stripe to process payments securely.
+  - **Order confirmation**: Users can see their order details and status after completing the checkout process.
+- **Admin functionality**: The application also has an admin side, where admins can perform the following tasks:
+  - **Product management**: Admins can add, edit, update, or delete products from the database. They can also upload product images and set product categories and prices.
+  - **Order management**: Admins can view all the orders placed by the users. They can also change the status of the orders, such as pending, shipped, or delivered. They can also fulfill the orders by sending email confirmations to the users.
