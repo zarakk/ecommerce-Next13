@@ -5,12 +5,11 @@ This is a full stack ecommerce application built with NextJS 13, the latest vers
 
 
 ## User Demo
-
-https://github.com/zarakk/ecommerce-application/assets/52151884/8930bcbe-b404-4350-a5af-f8304323fa80
+[Video Link](https://www.loom.com/share/91da622bdee64126811f19ed71fbb94e?sid=d282654d-d9a0-48a0-adf6-add8eadf5277)
 
 ## Admin Demo
 
-https://github.com/zarakk/ecommerce-application/assets/52151884/de8e89d5-976c-43e9-a15d-bef347579831
+[Video Link](https://www.loom.com/share/52e8e0c6235744f996af0d94d37bf07b?sid=f80e4da7-b66a-4459-b37c-beefbaad0afc)
 
 ## Features
 
