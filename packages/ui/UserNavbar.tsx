@@ -3,20 +3,22 @@ import Link from "next/link";
 
 export default function UserNavbar() {
   return (
-    <nav className="bg-white shadow">
+    <nav className="bg-transparent z-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/">
-                <span className="text-xl font-bold">Cap Store</span>
+                <span className="text-xl font-bold text-white cursor-pointer">
+                  Cap Store
+                </span>
               </Link>
             </div>
           </div>
           <div className="flex items-center">
             <Link
               href="/search"
-              className="p-1 rounded-full text-gray-400 hover:text-gray-500"
+              className="p-1 rounded-full text-white cursor-pointer hover:text-white"
             >
               <span className="sr-only">Search</span>
               <svg
@@ -37,7 +39,7 @@ export default function UserNavbar() {
             </Link>
             <Link
               href="/cart"
-              className="ml-4 p-1 rounded-full text-gray-400 hover:text-gray-500"
+              className="ml-4 p-1 rounded-full text-white hover:text-white"
             >
               <span className="sr-only">View cart</span>
               <svg

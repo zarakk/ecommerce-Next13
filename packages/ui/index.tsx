@@ -16,3 +16,4 @@ export * from "./AdminNavbar";
 export * from "./Modal";
 export * from "./EditProductPage";
 export * from "./NewProductPage";
+export * from "./ThirstySection";

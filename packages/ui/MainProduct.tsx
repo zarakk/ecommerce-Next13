@@ -21,19 +21,15 @@ export default function MainProduct({ product }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col rounded-lg border cursor-pointer ">
       <Link href={`/products/${product.id}`} className="w-full">
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-64 object-cover rounded-lg"
         />
-        <h2 className="mt-4 text-2xl font-bold text-gray-900">
-          {product.title}
-        </h2>
-        <p className="mt-1 text-lg text-gray-600">{product.price}</p>
       </Link>
-
+      {/* @ts-ignore */}
       <ProductButtons product={product} />
     </div>
   );

@@ -68,19 +68,31 @@ const ProductButtons = ({ product }: Props) => {
   };
 
   return (
-    <div className="mt-6">
-      <button
-        onClick={onAddToCart}
-        className="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 mr-4"
-      >
-        {isAddedToCart ? "Added to Cart" : "Add to Cart"}
-      </button>
-      <button
+    <div className="p-4">
+      <div className="card-pills">
+        <div className="text-[#0c183c] rounded-full border w-28 p-2 text-center text-xs border-[#0c183c]">
+          Award Winning
+        </div>
+      </div>
+      <h2 className="mt-4 text-2xl font-bold text-gray-900">
+        {product?.title}
+      </h2>
+      <div className="mt-6 flex justify-between">
+        <p className="mt-1 text-lg text-gray-600">{product?.price}</p>
+
+        <button
+          onClick={onAddToCart}
+          className="bg-[#fcb128] uppercase font-bold text-black rounded-full px-4 py-2 hover:bg-[#0c183c] hover:text-white transition duration-500 ease-in-out mr-4"
+        >
+          {isAddedToCart ? "Added to Cart" : "Add"}
+        </button>
+        {/* <button
         onClick={onBuyNow}
         className="bg-yellow-400 text-white rounded-md px-4 py-2 hover:bg-yellow-500"
       >
         Buy Now
-      </button>
+      </button> */}
+      </div>
     </div>
   );
 };
