@@ -17,3 +17,4 @@ export * from "./Modal";
 export * from "./EditProductPage";
 export * from "./NewProductPage";
 export * from "./ThirstySection";
+export * from "./CollectionSection";

@@ -3,6 +3,8 @@ import Link from "next/link";
 import UserNavbar from "./UserNavbar";
 import ThirstySection from "./ThirstySection";
 import Reviews from "./Reviews";
+import CollectionSection from "./CollectionSection";
+
 interface Product {
   title: string;
   description: string;
@@ -10,6 +12,7 @@ interface Product {
   image: string;
   id: number;
 }
+[];
 
 interface Props {
   products: Product[];
@@ -19,6 +22,11 @@ export default function LandingPage({ products }: Props) {
   return (
     <>
       <div className=" w-full">
+        <div className="strip bg-[#0c183c] h-10 text-white text-center flex justify-center items-center">
+          <p>
+            Free same day delivery for orders above <strong>$200</strong>
+          </p>
+        </div>
         <div
           className="relative bg-center bg-contain h-screen"
           style={{
@@ -125,6 +133,7 @@ export default function LandingPage({ products }: Props) {
             ))}
           </div>
         </div>
+        <CollectionSection products={products} />
         <ThirstySection />
         <Reviews />
       </div>

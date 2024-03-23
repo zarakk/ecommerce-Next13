@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ProductButtons from "./ProductButtons";
-interface ProductType {
+export interface ProductType {
   title: string;
   price: number;
   image: string;
@@ -21,7 +21,7 @@ export default function MainProduct({ product }: Props) {
   };
 
   return (
-    <div className="flex flex-col rounded-lg border cursor-pointer ">
+    <div className="flex flex-col min-w-full rounded-lg border cursor-pointer ">
       <Link href={`/products/${product.id}`} className="w-full">
         <img
           src={product.image}
