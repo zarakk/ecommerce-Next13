@@ -4,6 +4,10 @@ import { useState, useContext } from "react";
 import { StoreContext } from "../context";
 import { useRouter } from "next/navigation";
 import UserNavbar from "ui/UserNavbar";
+import DefaultNavbar from "ui/DefaultNavbar";
+import OthersBoughtSection from "ui/OthersBoughtSection";
+import { getProducts } from "../page";
+import Footer from "ui/Footer";
 
 type Product = {
   id: string;
@@ -35,47 +39,99 @@ function Cart() {
 
   return (
     <>
-      <UserNavbar />
-      <div className="max-w-md mx-auto p-4">
-        <h2 className="text-2xl font-bold mb-4">Cart</h2>
-        {cart.length === 0 ? (
-          "No Items Added to Cart"
-        ) : (
-          <>
-            <ul className="space-y-4">
-              {cart.flatMap((item: any) => (
-                <li
-                  key={item.product.id}
-                  className="border border-gray-300 rounded-md p-4"
-                >
-                  <h3 className="text-lg font-medium mb-2">
-                    Item: {item.product.title}
-                  </h3>
-                  <p className="text-gray-600">Price: ${item.product.price}</p>
-                  <p className="text-gray-600">Quantity: {item.quantity}</p>
-
-                  <button
-                    onClick={() => removeFromCart(item)}
-                    className="mt-2 bg-red-600 text-white rounded-md px-3 py-1 hover:bg-red-700"
+      {/* navbar */}
+      <DefaultNavbar />
+      <div className="cart-page-content flex">
+        <div className="p-8 w-full">
+          <h2 className="text-5xl font-bold mb-4 p-2">My Cart</h2>
+          {cart.length === 0 ? (
+            "No Items Added to Cart"
+          ) : (
+            <div className="flex flex-col">
+              <ul className="space-y-4 w-full flex-1 ">
+                {cart.flatMap((item: any) => (
+                  <li
+                    key={item.product.id}
+                    className="border border-gray-300 rounded-md p-4 flex w-full h-46 justify-start items-start gap-4"
                   >
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
-            {/* Display the total price */}
-            <h3 className="text-lg font-medium p-2">
-              Total price: ${totalPrice.toFixed(2)}
-            </h3>
-            <button
-              onClick={checkout}
-              className="w-full bg-blue-600 text-white rounded-md px-3 py-2 mt-4 hover:bg-blue-700"
-            >
-              Checkout
-            </button>
-          </>
-        )}
+                    <img
+                      src={`${item.product.image}`}
+                      className="w-60 h-36 object-cover rounded-md"
+                    />
+                    <div className="flex w-full items-center justify-between">
+                      <h3 className="text-lg font-medium mb-2">
+                        {item.product.title}
+                      </h3>
+                      <div className="text-gray-600 flex gap-2 items-center">
+                        <div className="flex gap-4 rounded-full border p-2 hover:border-black">
+                          <div className="decrease cursor-pointer">-</div>
+                          {item.quantity}
+                          <div className="increase cursor-pointer">+</div>
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(item)}
+                          className=" text-gray-800 hover:text-black"
+                        >
+                          X
+                        </button>
+                      </div>
+                      <p className="text-black font-bold">
+                        ${item.product.price}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="cart-gift-options flex gap-6 mt-4">
+                <div
+                  className="gift-card-option-1 bg-gray-400 cursor-pointer hover:bg-[#fcb128]
+               transition duration-500 text-black p-4 rounded-full text-lg font-bold uppercase"
+                >
+                  <p>Add Gift Cart</p>
+                </div>
+                <div
+                  className="gift-card-option-2 bg-gray-400 cursor-pointer hover:bg-[#fcb128]
+               transition duration-500 text-black p-4 rounded-full text-lg font-bold uppercase"
+                >
+                  <p>Add ice and cooler box</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="p-4  w-1/2 flex flex-col justify-center ">
+          <div className="cart-delivery-options flex gap-6 flex-col mb-10">
+            <div>
+              <p className="delivery-header uppercase font-bold mt-4">
+                Select delivery method
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <div className="timeslot-option cursor-pointer hover:bg-gray-200">
+                <img src="/delivery.png" alt="" className="w-40" />
+              </div>
+              <div className="warehouse-option cursor-pointer hover:bg-gray-200 ">
+                <img src="/warehouse.png" alt="" className="w-40" />
+              </div>
+              <div className="priority-option cursor-pointer hover:bg-gray-200">
+                <img src="/priority.png" alt="" className="w-40" />
+              </div>
+            </div>
+          </div>
+          {/* Display the total price */}
+          <h3 className="text-lg font-medium p-2">
+            Total price: ${totalPrice.toFixed(2)}
+          </h3>
+          <button
+            onClick={checkout}
+            className="w-full bg-[#fcb128] text-[#0c183c] p-4 hover:bg-[#0c183c]
+             hover:text-white rounded-full transition duration-500 font-bold text-2xl"
+          >
+            Checkout
+          </button>
+        </div>
       </div>
+      <Footer />
     </>
   );
 }

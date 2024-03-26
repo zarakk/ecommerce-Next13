@@ -1,32 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function UserNavbar() {
+export default function DefaultNavbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
   const [showDropdown3, setShowDropdown3] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrollPosition(window.pageYOffset);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const isScrolled = scrollPosition > 0;
 
   return (
     <div>
-      <nav
-        className={`fixed w-full p-2 z-20 ${
-          isScrolled
-            ? "top-0 bg-[#fcb128]"
-            : "bg-transparent hover:bg-[#fcb128]"
-        }`}
-      >
+      <nav className="bg-[#fcb128] z-20 p-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
