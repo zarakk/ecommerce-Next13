@@ -8,6 +8,8 @@ import DefaultNavbar from "ui/DefaultNavbar";
 import OthersBoughtSection from "ui/OthersBoughtSection";
 import { getProducts } from "../page";
 import Footer from "ui/Footer";
+import CollectionSection from "ui/CollectionSection";
+import Reviews from "ui/Reviews";
 
 type Product = {
   id: string;
@@ -84,13 +86,13 @@ function Cart() {
               </ul>
               <div className="cart-gift-options flex gap-6 mt-4">
                 <div
-                  className="gift-card-option-1 bg-gray-400 cursor-pointer hover:bg-[#fcb128]
-               transition duration-500 text-black p-4 rounded-full text-lg font-bold uppercase"
+                  className="gift-card-option-1 bg-[#e6e7eb] cursor-pointer hover:bg-[#fcb128]
+               transition duration-500 text-black p-4 pl-8 pr-8 rounded-full text-lg font-bold uppercase"
                 >
                   <p>Add Gift Cart</p>
                 </div>
                 <div
-                  className="gift-card-option-2 bg-gray-400 cursor-pointer hover:bg-[#fcb128]
+                  className="gift-card-option-2 bg-[#e6e7eb] cursor-pointer hover:bg-[#fcb128]
                transition duration-500 text-black p-4 rounded-full text-lg font-bold uppercase"
                 >
                   <p>Add ice and cooler box</p>
@@ -100,12 +102,14 @@ function Cart() {
           )}
         </div>
         <div className="p-4  w-1/2 flex flex-col justify-center ">
+          {/* delivery method component */}
           <div className="cart-delivery-options flex gap-6 flex-col mb-10">
             <div>
               <p className="delivery-header uppercase font-bold mt-4">
                 Select delivery method
               </p>
             </div>
+
             <div className="flex gap-4">
               <div className="timeslot-option cursor-pointer hover:bg-gray-200">
                 <img src="/delivery.png" alt="" className="w-40" />
@@ -116,6 +120,18 @@ function Cart() {
               <div className="priority-option cursor-pointer hover:bg-gray-200">
                 <img src="/priority.png" alt="" className="w-40" />
               </div>
+            </div>
+          </div>
+          {/* special instructions component */}
+          <div className="cart-delivery-options flex gap-6 flex-col mb-10">
+            <div>
+              <p className="delivery-header uppercase font-bold mt-4">
+                Any special instructions?
+              </p>
+            </div>
+
+            <div className="flex gap-4">
+              <textarea className="p-2 border" rows={4} cols={60}></textarea>
             </div>
           </div>
           {/* Display the total price */}

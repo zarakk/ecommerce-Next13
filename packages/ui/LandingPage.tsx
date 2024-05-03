@@ -1,9 +1,11 @@
+"use client";
 import MainProduct from "./MainProduct";
 import Link from "next/link";
 import UserNavbar from "./UserNavbar";
 import ThirstySection from "./ThirstySection";
 import Reviews from "./Reviews";
 import CollectionSection from "./CollectionSection";
+import { useState } from "react";
 
 interface Product {
   title: string;
@@ -19,6 +21,22 @@ interface Props {
 }
 
 export default function LandingPage({ products }: Props) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex(currentIndex + 1);
+    if (currentIndex >= products.length - 1) {
+      setCurrentIndex(0);
+      console.log("ok");
+    }
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex(currentIndex - 1);
+    if (currentIndex <= 0) {
+      setCurrentIndex(products.length - 1);
+    }
+  };
   return (
     <>
       <div className=" w-full">
@@ -66,7 +84,10 @@ export default function LandingPage({ products }: Props) {
                 See all
               </div>
               <div className="flex p-2 gap-2">
-                <div className="arrow-left bg-[#9ea3b1] text-white cursor-pointer hover:bg-[#0c183c] rounded-full hover:text-white p-2">
+                <div
+                  className="arrow-left bg-[#9ea3b1] text-white cursor-pointer hover:bg-[#0c183c] rounded-full hover:text-white p-2"
+                  onClick={() => handlePrev()}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -95,7 +116,10 @@ export default function LandingPage({ products }: Props) {
                     </g>
                   </svg>
                 </div>
-                <div className="arrow-right bg-[#0c183c] text-white cursor-pointer rounded-full hover:bg-[#0c183c] hover:text-white p-2">
+                <div
+                  className="arrow-right bg-[#0c183c] text-white cursor-pointer rounded-full hover:bg-[#0c183c] hover:text-white p-2"
+                  onClick={() => handleNext()}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -128,8 +152,12 @@ export default function LandingPage({ products }: Props) {
             </div>
           </div>
           <div className="mt-6  grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-            {products.map((product: Product) => (
-              <MainProduct key={product.id} product={product} />
+            {products.map((product: Product, index: number) => (
+              <MainProduct
+                key={product.id}
+                product={product}
+                // visible={index === currentIndex}
+              />
             ))}
           </div>
         </div>
