@@ -20,3 +20,7 @@ export * from "./NewProductPage";
 export * from "./ThirstySection";
 export * from "./CollectionSection";
 export * from "./OthersBoughtSection";
+export * from "./ProductPageButtons";
+export * from "./ProductPageButtons";
+export * from "./ProductReviewSection";
+export * from "./BlueStrip";

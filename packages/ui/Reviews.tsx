@@ -60,14 +60,14 @@ export default function Reviews() {
 
   return (
     <div className="bg-[#fcb128] flex p-4">
-      <div className="review-changing-section w-1/3 flex flex-col justify-between items-start">
-        <h3 className="uppercase text-5xl font-bold text-[#0c183c]">
+      <div className="review-changing-section w-1/3 flex flex-col justify-between items-start p-8">
+        <h3 className="uppercase text-5xl font-bold text-[#0c183c] ">
           30,000 happy drinkers and counting
         </h3>
       </div>
 
       <div
-        className="flex gap-4 overflow-auto hide-scrollbar"
+        className="flex gap-4 overflow-auto hide-scrollbar items-center"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

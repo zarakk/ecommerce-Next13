@@ -6,6 +6,7 @@ import ThirstySection from "./ThirstySection";
 import Reviews from "./Reviews";
 import CollectionSection from "./CollectionSection";
 import { useState } from "react";
+import BlueStrip from "./BlueStrip";
 
 interface Product {
   title: string;
@@ -40,11 +41,7 @@ export default function LandingPage({ products }: Props) {
   return (
     <>
       <div className=" w-full">
-        <div className="strip bg-[#0c183c] h-10 text-white text-center flex justify-center items-center">
-          <p>
-            Free same day delivery for orders above <strong>$200</strong>
-          </p>
-        </div>
+        <BlueStrip />
         <div
           className="relative bg-center bg-contain h-screen"
           style={{

@@ -11,12 +11,12 @@ const ProductsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
 
-  useEffect(() => {
-    // Fetch products from API and update state
-    fetch("/api/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   // Fetch products from API and update state
+  //   fetch("/api/products")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
 
   const handleEdit = (product) => {
     setSelectedProduct(product);

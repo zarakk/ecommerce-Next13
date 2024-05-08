@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "ui/Footer";
+import DefaultNavbar from "ui/DefaultNavbar";
+import ProductPageButtons from "ui/ProductPageButtons";
+import { ProductReviewSection } from "ui";
 import Reviews from "ui/Reviews";
-import ProductButtons from "ui/ProductButtons";
-import UserNavbar from "ui/UserNavbar";
+import BlueStrip from "ui/BlueStrip";
 
 type Product = {
   id: string;
@@ -30,7 +32,8 @@ async function ProductDetailPage({ params: { id } }: any) {
 
   return (
     <>
-      <UserNavbar />
+      <BlueStrip />
+      <DefaultNavbar />
       <div className="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 ">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 h-96">
@@ -44,17 +47,20 @@ async function ProductDetailPage({ params: { id } }: any) {
             <h2 className="text-3xl font-bold">{product.title}</h2>
             <p className="text-gray-600 text-lg">${product.price}</p>
             <p className="mt-4">{product.description}</p>
-            <ProductButtons product={product} />
+            <ProductPageButtons product={product} />
           </div>
         </div>
         <div className="mt-12">
-          <h3 className="text-xl font-bold mb-4">Reviews</h3>
-          {/* Render reviews here */}
+          <div className="flex justify-between items-center w-full">
+            <ProductReviewSection />
+          </div>
           <Reviews />
+
+          {/* Render reviews here */}
         </div>
         {/* Render footer here */}
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
