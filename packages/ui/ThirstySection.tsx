@@ -23,7 +23,7 @@ export default function ThirstySection() {
             ></div>
             <div className="p-4 h-20 z-10">
               <h3 className="text-5xl uppercase">Endless Supply of juice</h3>
-              <p className="text-base uppercase">Start Drinking</p>
+              <p className="text-base uppercase py-2">Start Drinking</p>
             </div>
           </div>
           {/* small card */}
@@ -41,7 +41,7 @@ export default function ThirstySection() {
             ></div>
             <div className="p-4 h-20 z-10">
               <h3 className="text-5xl uppercase">New to Craft Juice?</h3>
-              <p className="text-base uppercase">Start here</p>
+              <p className="text-base uppercase py-2">Start here</p>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function ThirstySection() {
             ></div>
             <div className="p-4 z-10 h-20 hover:bg-transparent">
               <h3 className="text-5xl z-20">Gifts for all occasions</h3>
-              <p className="text-base">Juice is love</p>
+              <p className="text-base p-2">Juice is love</p>
             </div>
           </div>
         </div>

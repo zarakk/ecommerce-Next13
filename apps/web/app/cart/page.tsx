@@ -51,7 +51,7 @@ function Cart() {
       <div className="cart-page-content flex">
         <div className="p-8 w-full">
           <h2 className="text-5xl font-bold mb-4 p-2">My Cart</h2>
-          {cart.length === 0 ? (
+          {cart?.length === 0 ? (
             "No Items Added to Cart"
           ) : (
             <div className="flex flex-col">

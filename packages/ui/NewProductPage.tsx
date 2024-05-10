@@ -31,7 +31,7 @@ const NewProductPage = ({ setProducts, products, setIsModalOpen }: any) => {
     // Redirect to products page
     setProducts([
       ...products,
-      { id: products.length + 1, title, description, price, image },
+      { id: products?.length + 1, title, description, price, image },
     ]);
     // router.push("/admin/products");
     setIsModalOpen(true);

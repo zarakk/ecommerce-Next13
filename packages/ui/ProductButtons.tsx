@@ -78,7 +78,9 @@ const ProductButtons = ({ product }: Props) => {
         {product?.title}
       </h2>
       <div className="mt-6 flex justify-between">
-        <p className="mt-1 text-lg text-gray-600">{product?.price}</p>
+        <p className="mt-1 text-lg text-[#0c183c] font-bold">
+          ${product?.price}
+        </p>
 
         <button
           onClick={onAddToCart}

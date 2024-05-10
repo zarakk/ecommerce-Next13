@@ -39,12 +39,12 @@ export default function DefaultNavbar() {
                         Style
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             Lager
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Golden Ale
                           </span>
@@ -61,17 +61,17 @@ export default function DefaultNavbar() {
                         Country
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             America
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Australia
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Belgium
                           </span>
@@ -83,17 +83,17 @@ export default function DefaultNavbar() {
                         Flavour
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             Light & Refreshing
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Subtle & Balance
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Bold & Hoppy
                           </span>
@@ -120,13 +120,13 @@ export default function DefaultNavbar() {
                     <div className="flex flex-col p-8">
                       <span className="block px-4 py-2 font-bold ">Cider</span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             All Ciders
                           </span>
                         </Link>
 
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Sweet Cider
                           </span>
@@ -136,12 +136,12 @@ export default function DefaultNavbar() {
                     <div className="flex flex-col p-8">
                       <span className="block px-4 py-2 font-bold">Spirit</span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             All Spirits
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Cocktail
                           </span>
@@ -151,12 +151,12 @@ export default function DefaultNavbar() {
                     <div className="flex flex-col p-8">
                       <span className="block px-4 py-2 font-bold ">Soda</span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             All Sodas
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Ginger
                           </span>
@@ -184,17 +184,17 @@ export default function DefaultNavbar() {
                         Present
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             Juice Gift
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Digital Gift Card
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             All Gifts
                           </span>
@@ -206,17 +206,17 @@ export default function DefaultNavbar() {
                         Occassion
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             Birthday
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Congratulations
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Thank you
                           </span>
@@ -228,12 +228,12 @@ export default function DefaultNavbar() {
                         Customise
                       </span>
                       <div className="text-sm">
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200 ">
                             Build your own gift
                           </span>
                         </Link>
-                        <Link href="/juice2">
+                        <Link href="/">
                           <span className="block px-4 py-2 hover:bg-gray-200">
                             Corporate gift
                           </span>

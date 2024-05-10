@@ -8,7 +8,7 @@ export default function UserNavbar({ products }: any) {
   const [showDropdown2, setShowDropdown2] = useState(false);
   const [showDropdown3, setShowDropdown3] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  // const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -265,12 +265,10 @@ export default function UserNavbar({ products }: any) {
             </div>
 
             <div className="flex items-center">
-              <div
-                // onClick={() => setIsSearchOpen(true)}
-                className="p-1 rounded-full text-white cursor-pointer hover:text-white"
-              >
+              <div className="p-1 rounded-full text-white cursor-pointer hover:text-white">
                 <span className="sr-only">Search</span>
                 <svg
+                  onClick={() => setIsSearchOpen(!isSearchOpen)}
                   fill="none"
                   className="h-6 w-6"
                   stroke="currentColor"
@@ -285,11 +283,11 @@ export default function UserNavbar({ products }: any) {
                     d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                   ></path>
                 </svg>
-                {/* <SearchComponent
+                <SearchComponent
                   products={products}
                   isOpen={isSearchOpen}
                   setIsOpen={setIsSearchOpen}
-                /> */}
+                />
               </div>
               <Link
                 href="/cart"

@@ -18,7 +18,7 @@ export default function CollectionSection({ products }: Props) {
   return (
     <div className="p-4">
       <div className="collection-section-header flex justify-between items-center ">
-        <h3 className="text-[#0c183c] font-bold text-5xl uppercase mb-4">
+        <h3 className="text-[#0c183c] font-bold text-4xl uppercase mb-4 font-extrabold">
           Begin your adventure...
         </h3>
         <div className="uppercase text-[#0c183c]">see all collections</div>
@@ -37,8 +37,8 @@ export default function CollectionSection({ products }: Props) {
             style={{ opacity: 0.5 }}
           ></div>
           <div className="p-4 h-20 z-10">
-            <h3 className="text-5xl uppercase">Your party starter kit</h3>
-            <p className="text-base uppercase">See all</p>
+            <h3 className="text-5xl uppercase p-2">Your party starter kit</h3>
+            <p className="text-base uppercase px-4">See all</p>
           </div>
         </div>
         <div
@@ -52,7 +52,7 @@ export default function CollectionSection({ products }: Props) {
             },
           }}
         >
-          <div className="mt-6 flex gap-4 ">
+          <div className="mt-6 flex gap-4 w-1/2">
             {products.map((product: Product) => (
               <MainProduct key={product.id} product={product} />
             ))}

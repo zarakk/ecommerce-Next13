@@ -27,7 +27,7 @@ export default function LandingPage({ products }: Props) {
 
   const handleNext = () => {
     setCurrentIndex(currentIndex + 1);
-    if (currentIndex >= products.length - 1) {
+    if (currentIndex >= products?.length - 1) {
       setCurrentIndex(0);
       console.log("ok");
     }
