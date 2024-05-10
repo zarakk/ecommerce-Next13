@@ -7,6 +7,7 @@ import Reviews from "./Reviews";
 import CollectionSection from "./CollectionSection";
 import { useState } from "react";
 import BlueStrip from "./BlueStrip";
+import Footer from "./Footer";
 
 interface Product {
   title: string;
@@ -49,7 +50,7 @@ export default function LandingPage({ products }: Props) {
             backgroundSize: "cover",
           }}
         >
-          <UserNavbar />
+          <UserNavbar products={products} />
 
           <div className="absolute "></div>
           <div className="absolute z-10 inset-0 flex items-center justify-end pr-14">
@@ -161,6 +162,7 @@ export default function LandingPage({ products }: Props) {
         <CollectionSection products={products} />
         <ThirstySection />
         <Reviews />
+        <Footer />
       </div>
     </>
   );

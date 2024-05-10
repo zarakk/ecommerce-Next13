@@ -25,7 +25,7 @@ export default function DefaultNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c] ">
@@ -108,7 +108,7 @@ export default function DefaultNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown2(true)}
                 onMouseLeave={() => setShowDropdown2(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c]">
@@ -170,7 +170,7 @@ export default function DefaultNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown3(true)}
                 onMouseLeave={() => setShowDropdown3(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c]">

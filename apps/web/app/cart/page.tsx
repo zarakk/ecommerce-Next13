@@ -20,6 +20,8 @@ type Product = {
 function Cart() {
   // const [cart, setCart] = useState<Product[]>([]);
   const { cart, setCart } = useContext(StoreContext);
+  const [selectedOption, setSelectedOption] = useState("");
+
   const router = useRouter();
   function removeFromCart(item: any) {
     setCart(
@@ -32,6 +34,9 @@ function Cart() {
     // Handle checkout process here
     router.push("/checkout");
   }
+  const handleClick = (option) => {
+    setSelectedOption(option);
+  };
 
   // Calculate the total price of the items in the cart
   const totalPrice = cart.reduce(
@@ -111,13 +116,28 @@ function Cart() {
             </div>
 
             <div className="flex gap-4">
-              <div className="timeslot-option cursor-pointer hover:bg-gray-200">
+              <div
+                onClick={() => handleClick("timeslot")}
+                className={`timeslot-option cursor-pointer  hover:bg-gray-200 ${
+                  selectedOption === "timeslot" ? "bg-gray-200" : ""
+                }`}
+              >
                 <img src="/delivery.png" alt="" className="w-40" />
               </div>
-              <div className="warehouse-option cursor-pointer hover:bg-gray-200 ">
+              <div
+                onClick={() => handleClick("warehouse")}
+                className={`warehouse-option cursor-pointer hover:bg-gray-200 ${
+                  selectedOption === "warehouse" ? "bg-gray-200" : ""
+                }`}
+              >
                 <img src="/warehouse.png" alt="" className="w-40" />
               </div>
-              <div className="priority-option cursor-pointer hover:bg-gray-200">
+              <div
+                onClick={() => handleClick("priority")}
+                className={`priority-option cursor-pointer  hover:bg-gray-200 ${
+                  selectedOption === "priority" ? "bg-gray-200" : ""
+                }`}
+              >
                 <img src="/priority.png" alt="" className="w-40" />
               </div>
             </div>

@@ -24,3 +24,4 @@ export * from "./ProductPageButtons";
 export * from "./ProductPageButtons";
 export * from "./ProductReviewSection";
 export * from "./BlueStrip";
+export * from "./SearchComponent";

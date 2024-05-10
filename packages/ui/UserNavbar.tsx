@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import SearchComponent from "./SearchComponent";
 
-export default function UserNavbar() {
+export default function UserNavbar({ products }: any) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
   const [showDropdown3, setShowDropdown3] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  // const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -42,7 +44,7 @@ export default function UserNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c] ">
@@ -125,7 +127,7 @@ export default function UserNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown2(true)}
                 onMouseLeave={() => setShowDropdown2(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c]">
@@ -187,7 +189,7 @@ export default function UserNavbar() {
               <div
                 onMouseEnter={() => setShowDropdown3(true)}
                 onMouseLeave={() => setShowDropdown3(false)}
-                className="z-40 pb-4"
+                className="z-40 py-4"
               >
                 <Link href="/">
                   <span className="text-xl font-bold text-white cursor-pointer hover:text-[#0c183c]">
@@ -263,8 +265,8 @@ export default function UserNavbar() {
             </div>
 
             <div className="flex items-center">
-              <Link
-                href="/search"
+              <div
+                // onClick={() => setIsSearchOpen(true)}
                 className="p-1 rounded-full text-white cursor-pointer hover:text-white"
               >
                 <span className="sr-only">Search</span>
@@ -283,7 +285,12 @@ export default function UserNavbar() {
                     d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                   ></path>
                 </svg>
-              </Link>
+                {/* <SearchComponent
+                  products={products}
+                  isOpen={isSearchOpen}
+                  setIsOpen={setIsSearchOpen}
+                /> */}
+              </div>
               <Link
                 href="/cart"
                 className="ml-4 p-1 rounded-full text-white hover:text-white z-40"
